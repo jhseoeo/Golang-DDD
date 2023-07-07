@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "github.com/jhseoeo/Golang-DDD/chapter2/grpc/user";
+
+package user.v1;
+
+message User {
+  int64 id = 1;
+  string username = 2;
+  string email = 3;
+}
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+}
+message CreateUserRequest {
+  User user = 1;
+}
+message CreateUserResponse {
+  bool success = 1;
+}
