@@ -47,13 +47,13 @@ func (h Handler) getRecommendation(ctx *fiber.Ctx) error {
 	}
 
 	const expectedFormat = "2006-01-02"
-	from, err := time.Parse(_from, expectedFormat)
+	from, err := time.Parse(expectedFormat, _from)
 	if err != nil {
 		return ctx.Status(400).JSON(fiber.Map{
 			"error": "invalid from date",
 		})
 	}
-	to, err := time.Parse(_to, expectedFormat)
+	to, err := time.Parse(expectedFormat, _to)
 	if err != nil {
 		return ctx.Status(400).JSON(fiber.Map{
 			"error": "invalid to date",
